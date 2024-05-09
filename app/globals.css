@@ -1,33 +1,394 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+:root{
+    --Moderate-cyan: hsl(176, 50%, 47%);
+    --Dark-cyan: hsl(176, 72%, 28%);
+    --Black: hsl(0, 0%, 0%);
+    --Dark-gray: hsl(0, 0%, 48%);
+}
+html{
+  font-size: 15px;
+  scroll-behavior: smooth;
+}
+body{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Commissioner', sans-serif !important;
+}
+.nav{
+  background: url(./../public/image-hero-desktop.jpg) no-repeat;
+  /* background-size: cover; */
+  box-shadow: inset 0 0 15rem rgb(0, 0, 0);
+  width: 100%;
+  /* min-height: 100vh; */
+  height: 400px;
+  @apply flex flex-row items-start justify-between w-[100vw] py-[2rem] px-[3rem]
+}
+.logo{
+  @apply text-2xl text-white font-semibold
+}
+.nav-links{
+  @apply flex flex-row items-center gap-5
+}
+.nav-links li{
+  @apply text-white font-medium text-xl
+}
+.content{
+  /* background-color: rgb(255, 255, 255); */
+  width: 700px;
+  height: fit-content;
+  @apply flex flex-col relative bottom-[10vh]  items-center justify-center gap-4 m-auto rounded-[10px] p-[12px]
+}
+.sectionNumOne{
+  background-color: white;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  /* padding: 12px; */
+  height: fit-content;
+  padding: 25px;
+  border-radius: 8px;
+  @apply flex flex-col items-start gap-5
+}
+.number{
+  border-right: 1px solid var(--Dark-gray);
+  padding: 10px 30px 10px 10px;
+  /* padding-right: 20px; */
+  @apply flex flex-col items-start gap-[3px]
+}
+.number h1{
+  @apply text-[2.2rem] font-bold text-[var(--black)]
+}
+.number p{
+  color: var(--Dark-gray);
+  @apply text-[.9rem]
+}
+#noneborder{
+  border-right: none;
+}
+.range{
+  width : 100%;
+  @apply flex flex-row items-center gap-3;
+}
+.progress{
+  width: 100%;
+  height: 10px;
+  background-color: hsl(0deg 4.95% 91.04%);
+  border-radius: 5px;
+}
+.progress-bar{
+  width: 70%;
+  height: 100%;
+  background-color: var(--Moderate-cyan);
+  border-radius: 5px; 
+}
+.sectionIntro{
+  width: 100%;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  background-color: white;
+  border-radius: 8px;
+  @apply flex flex-col items-center gap-3 h-fit relative
+}
+.icon_master{
+  position: absolute;
+  top: -20px;
+}
+.sectionIntro h1{
+  /* margin-top: 20p; */
+  font-size: 1.5rem;
+  color: var(--Black);
+  margin-top: 30px;
+  font-weight: 800;
+}
+.sectionIntro p{
+  color: var(--Dark-gray);
+  width: 70%;
+  text-align: center;
+}
+.buttons{
+  @apply flex flex-row items-center gap-5 justify-between w-full mb-2 mt-4 px-3
+}
+.buttons button{
+  @apply border border-black
+}
+.btn{ 
+  background-color: var(--Moderate-cyan);
+  color: white;
+  text-align: center;
+  width: 200px;
+  padding: 15px 15px;
+  border-radius: 40px;
+  border: none;
+  outline: none;
+}
+.button{
+  background-color: #f8f8f8;
+  border: none;
+  color: var(--Dark-gray);
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 10px 20px 10px 40px;
+  border-radius: 20px;
+  height: 50px;
+  @apply flex flex-row relative items-center gap-3
+}
+.button button{
+  border: none;
+}
+.button svg{
+  position: absolute;
+  left: -25px;
+  color: var(--Dark-cyan) !important;
+}
+.colorGreen{
+  /* color: var(--Dark-cyan); */
+  fill: var(--Dark-cyan) !important;
+}
+.sectionNumTwo{
+  width: 100%;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+  padding: 25px;
+  background-color: white;
+  border-radius: 8px;
+  @apply flex flex-col items-start gap-3 h-fit
+}
+.sectionNumTwo .tit{
+  font-size: 1.3rem;
+  color: var(--Black);
+  font-weight: 700;
+}
+.sectionNumTwo p{
+  color: var(--Dark-gray);
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.card{
+  padding: 25px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  @apply flex flex-col items-start w-full bg-[white] 
+}
+.top_card{
+  @apply flex items-center justify-between w-full 
+}
+.card p{
+  padding: 15px 0;
+  color: var(--Dark-gray);
+}
+.bottom_card{
+  @apply flex items-center justify-between w-full 
+}
+.quantity{
+  font-size: 1.5rem;
+  font-weight: 700;
+  @apply flex items-start gap-1
+}
+.left{
+  font-size: .7rem !important;
+  font-weight: 500 !important;
+  @apply relative top-1
+}
+.bottom_card button{
+  width: 170px;
+  background-color: var(--Dark-cyan);
+  color: white;
+  padding: 12px;
+  border-radius: 20px;
+  border: none;
+}
+.title{
+  font-size: 1rem !important;
+  color: var(--Black);
+  font-weight: 700;
+}
+.price{
+  color: var(--Moderate-cyan);
+  font-size: .9rem;
+}
+.grrencolor{
+  color: var(--Dark-cyan) !important;
+}
+.Menu{
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: .7s ease all;
+  @apply flex flex-col items-start rounded-[15px] w-[700px] h-[700px] fixed top-[15%] bg-[white] p-[35px] left-[32%] z-[1000] overflow-auto
+}
+.Menu .title{
+  font-size: 17px !important;
+  @apply text-2xl font-bold text-[black]
+}
+.Menu .paragraph{
+  color: var(--Dark-gray);
+  font-size: 1rem;
+}
+.Menu .icon{
+  position: absolute;
+  right: 20px;
+  top: 30px;
+}
+.MenuCard{
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+  @apply w-full p-[25px] bg-[White] mt-6 rounded-xl
+}
+.MenuCard .checkBox{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.MenuCard .titleCard{
+  position: relative;
+  left: 5px;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: .7s ease;
+}
+.Titles{
+  @apply flex flex-row gap-[1.5rem] items-center
+}
+.MenuCard .titleCard:hover{
+  color: var(--Moderate-cyan);
+}
+.TopCardMenu{
+  @apply flex flex-row items-start gap-3
+}
+.MenuCard p {
+  color: var(--Dark-gray);
+  width: 100%;
+  position: relative;
+  top: 10px;
+}
+.row_text{
+  @apply flex flex-row items-center w-full justify-between
+}
+.card_details{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+.Mode{
+  opacity: .1;
+}
+.none{
+  display: none !important;
+}
+.Sale{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+.Sale span{
+  font-size: 1.2rem;
+  color: var(--Dark-gray);
+}
+.MenuCard hr{
+  width: 100%;
+  margin: 35px 0;
+  border: .5px solid #e9e9e9;
+}
+.input{
+  @apply flex flex-row items-center gap-2
+}
+.input input{
+  border-radius: 20px;
+  border: 1px solid var(--Dark-gray);
+  padding: 15px;
+  background-color: transparent;
+  width: 100%;
+}
+.input button{
+  background-color: var(--Moderate-cyan);
+  color: white;
+  border: none;
+  width: 70%;
+  border-radius: 20px;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.Sales_menu{
+  @apply flex flex-col items-start w-full
+}
+.thanksCont{
+  box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.3);
+  @apply flex flex-col items-center gap-7 w-[450px] z-[1000] p-[30px] h-fit rounded-[12px] bg-[white] fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.thanksCont h1{
+  font-size: 1.5rem;
+  color: var(--Black);
+  font-weight: 700;
+}
+.thanksCont p{
+  color: var(--Dark-gray);
+  font-size: 1rem;
+  text-align: center;
+  width: 100%;
+}
+.thanksCont button{
+  background-color: var(--Moderate-cyan);
+  color: white;
+  border: none;
+  width: 40%;
+  border-radius: 20px;
+  padding: 15px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+.greenBorder{
+  border: 1px solid var(--Moderate-cyan) !important;
+}
+#opacity{
+  opacity: .2;
+}
+.checkEvent{
+  pointer-events: none;
+}
+#btnThree{
+  /* display: none; */
+  pointer-events: none;
+}
+@media (max-width : 767px) {
+  .content{
+    width: 100%;
   }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .button{
+    background-color: transparent;
+  }
+  .button button{
+    display: none;
+  }
+  .sectionNumOne{
+    align-items: center;
+  }
+  .number{
+    align-items: center;
+    border-right: 0;
+    border-bottom: 1px solid var(--Dark-gray);
+  }
+  #noneborder{
+    border-bottom: none;
+  }
+  .Menu{
+    width: 91%;
+    left: 4%;
+  }
+  .Titles{
+    flex-direction: column;
+    align-items: start;
+    gap: .5rem;
+  }
+  .bottom_card , .Sale{
+    flex-direction: column;
+    align-items: start;
+    gap: 11px;
+  }
+  .Sale{
+    align-items: center !important;
   }
 }

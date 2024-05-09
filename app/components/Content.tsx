@@ -42,11 +42,13 @@ const Content = () => {
             Mode?.classList.remove("Mode")
         }
         iconClose?.addEventListener("click", () => {
-            setMenu(!Menu)
+        setMenu(!Menu)
             checkBox.forEach((item) => {
-                item.parentElement?.children[1].children[2].classList.add("none")
-                item.parentElement?.parentElement?.classList.remove("greenBorder")
-                item.checked = false
+                if (item instanceof HTMLInputElement) {
+                    item.parentElement?.children[1].children[2].classList.add("none")
+                    item.parentElement?.parentElement?.classList.remove("greenBorder")
+                    item.checked = false
+                }
             })
         })
     })

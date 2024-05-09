@@ -5,16 +5,19 @@ const Thanks = () => {
   const [close, setClose] = useState(false)
   
   useEffect(() => {
-    let btn = document.getElementById("btn")
-    let Thanks = document.getElementById("Thanks")
-    if (close) {
-      Thanks?.classList.add("none")
-      document.getElementById("Mode")?.classList.remove("Mode")
+    if (typeof document !== 'undefined') {
+    // Place the code here that uses document
+      let btn = document.getElementById("btn")
+      let Thanks = document.getElementById("Thanks")
+      if (close) {
+        Thanks?.classList.add("none")
+        document.getElementById("Mode")?.classList.remove("Mode")
+      }
+      btn?.addEventListener("click" , () => {
+        setClose(!close)
+        console.log(close)
+      })
     }
-    btn?.addEventListener("click" , () => {
-      setClose(!close)
-      console.log(close)
-    })
   } , [close])
   return (
     <div className='thanksCont none' id="Thanks">

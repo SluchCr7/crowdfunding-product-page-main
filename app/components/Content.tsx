@@ -14,63 +14,67 @@ const Content = () => {
     let One = (document.getElementById("CheckOne") as HTMLInputElement)?.checked;
     let two = (document.getElementById("CheckTwo") as HTMLInputElement)?.checked;
     useEffect(() => {
-        let bookmark = document.getElementById("bookmark")
-        let imgBook = document.getElementById("imgBook")
-        if (bookMarked) {
-            bookmark?.classList.add("grrencolor")
-            imgBook?.classList.add("colorGreen")
-        }
-        else {
-            bookmark?.classList.remove("grrencolor")
-            imgBook?.classList.remove("colorGreen")
-        }
-        bookmark?.addEventListener('click', () => {
-            setBookMarked(!bookMarked)
-        })
-        let btn = document.querySelector(".btn")
-        let iconClose = document.getElementById("iconClose")
-        let checkBox = document.querySelectorAll(".checkBox")
-        if (Menu) {
-            menuSale?.classList.remove("none")
-            Mode?.classList.add("Mode")
-        }
-        btn?.addEventListener("click", () => {
-            setMenu(!Menu)
-        })
-        if (!Menu) {
-            menuSale?.classList.add("none")
-            Mode?.classList.remove("Mode")
-        }
-        iconClose?.addEventListener("click", () => {
-        setMenu(!Menu)
-            checkBox.forEach((item) => {
-                if (item instanceof HTMLInputElement) {
-                    item.parentElement?.children[1].children[2].classList.add("none")
-                    item.parentElement?.parentElement?.classList.remove("greenBorder")
-                    item.checked = false
-                }
+        if (typeof document !== 'undefined') {
+            let bookmark = document.getElementById("bookmark")
+            let imgBook = document.getElementById("imgBook")
+            if (bookMarked) {
+                bookmark?.classList.add("grrencolor")
+                imgBook?.classList.add("colorGreen")
+            }
+            else {
+                bookmark?.classList.remove("grrencolor")
+                imgBook?.classList.remove("colorGreen")
+            }
+            bookmark?.addEventListener('click', () => {
+                setBookMarked(!bookMarked)
             })
-        })
+            let btn = document.querySelector(".btn")
+            let iconClose = document.getElementById("iconClose")
+            let checkBox = document.querySelectorAll(".checkBox")
+            if (Menu) {
+                menuSale?.classList.remove("none")
+                Mode?.classList.add("Mode")
+            }
+            btn?.addEventListener("click", () => {
+                setMenu(!Menu)
+            })
+            if (!Menu) {
+                menuSale?.classList.add("none")
+                Mode?.classList.remove("Mode")
+            }
+            iconClose?.addEventListener("click", () => {
+            setMenu(!Menu)
+                checkBox.forEach((item) => {
+                    if (item instanceof HTMLInputElement) {
+                        item.parentElement?.children[1].children[2].classList.add("none")
+                        item.parentElement?.parentElement?.classList.remove("greenBorder")
+                        item.checked = false
+                    }
+                })
+            })
+        }
     })
     useEffect(() => {
-        let btnOne = document.getElementById("btnOne")
-        let btnTwo = document.getElementById("btnTwo")
-        if (Menu) {
-            menuSale?.classList.remove("none")
+        if (typeof document !== 'undefined') {
+            let btnOne = document.getElementById("btnOne")
+            let btnTwo = document.getElementById("btnTwo")
+            if (Menu) {
+                menuSale?.classList.remove("none")
+            }
+            btnOne?.addEventListener("click", () => {
+                setMenu(!Menu)
+                document.getElementById("cardTwo")?.classList.add("greenBorder")
+                One = true
+                document.getElementById("SaleOne")?.classList.remove("none")
+            })
+            btnTwo?.addEventListener("click", () => {
+                setMenu(!Menu)
+                document.getElementById("cardThree")?.classList.add("greenBorder")
+                two = true
+                document.getElementById("SaleTwo")?.classList.remove("none")
+                
+            })
         }
-        btnOne?.addEventListener("click", () => {
-            setMenu(!Menu)
-            document.getElementById("cardTwo")?.classList.add("greenBorder")
-            One = true
-            document.getElementById("SaleOne")?.classList.remove("none")
-        })
-        btnTwo?.addEventListener("click", () => {
-            setMenu(!Menu)
-            document.getElementById("cardThree")?.classList.add("greenBorder")
-            two = true
-            document.getElementById("SaleTwo")?.classList.remove("none")
-            
-        })
     })
 
 return (

@@ -10,27 +10,32 @@ type headerBarams = {
   SalesId? : string
 }
 
+type elements  = {
+  value: string
+  id: string
+}
+
 const MenuCard = (props : headerBarams) => {
   const [check, setCheck] = useState(false);
   useEffect(() => {
-    let checkBox = document.querySelectorAll(".checkBox")
-    let MenuCard = document.querySelectorAll(".MenuCard")
+    let checkBox = document.querySelectorAll(".checkBox") as NodeListOf<HTMLInputElement>
+    let MenuCard = document.querySelectorAll(".MenuCard") as NodeListOf<HTMLInputElement>
     checkBox.forEach((item) => {
       item.addEventListener("click", (e) => {
         // console.log(item.parentElement?.children[0])
         if (item.checked) {
           checkBox.forEach((item) => {
-            item.parentElement?.children[1].children[2].classList.add("none")
-            item.parentElement.parentElement?.classList.remove("greenBorder")
-            item.checked = false
+            item.parentElement?.children[1]?.children[2].classList.add("none")
+            item.parentElement?.parentElement?.classList.remove("greenBorder")
+            item.checked = false;
           })
-          item.parentElement?.children[1].children[2].classList.remove("none")
-          item.parentElement.parentElement?.classList.add("greenBorder")
-          e.currentTarget.checked = true
+          item.parentElement?.children[1]?.children[2].classList.remove("none")
+          item.parentElement?.parentElement?.classList.add("greenBorder")
+          item.checked = true;
         }
         else {
           item.parentElement?.children[1].children[2].classList.add("none")
-          item.parentElement.parentElement?.classList.remove("greenBorder")
+          item.parentElement?.parentElement?.classList.remove("greenBorder")
           // item.parentElement?.classList.remove("greenBorder")
         }
         // console.log(item.parentElement?.children[1].children[2].children[1].children[1].children[1])
@@ -39,13 +44,13 @@ const MenuCard = (props : headerBarams) => {
       let button = item.parentElement?.children[1].children[2].children[1].children[1].children[1]
       let title = item.parentElement?.children[1].children[0].children[0].children[0]
       let quantity = item.parentElement?.children[1].children[0].children[1].children[0]
-      let input = item.parentElement?.children[1].children[2].children[1].children[1].children[0]
+      let input = item.parentElement?.children[1].children[2].children[1].children[1].children[0] as HTMLInputElement
       let Thanks = document.getElementById("Thanks")
 
       button?.addEventListener("click" , () => {
         // console.log(item.parentElement?.children[1].children[0].children[1].children[0].textContent)
         if (title?.textContent === "Black Edition Stand") {
-          if (input?.value < 75) {
+          if (parseInt(input?.value) < 75) {
             console.log("Please enter a valid amount")
           }
           else {
@@ -55,7 +60,7 @@ const MenuCard = (props : headerBarams) => {
           }
         }
         else if (title?.textContent === "Mahogany Special Edition") {
-          if (input?.value < 200) {
+          if (parseInt(input?.value) < 200) {
             console.log("Please enter a valid amount")
           }
           else {
@@ -70,7 +75,7 @@ const MenuCard = (props : headerBarams) => {
           Thanks?.classList.remove("none")
         }
         else {
-          if (input?.value < 25) {
+          if (parseInt(input?.value) < 25) {
             // menuSale?.classList.add("none")
             console.log("Please enter a valid amount")
           }

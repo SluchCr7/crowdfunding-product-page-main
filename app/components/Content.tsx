@@ -11,6 +11,8 @@ const Content = () => {
     
     let menuSale = document.getElementById("menuSale")
     let Mode = document.getElementById("Mode")
+    let One = (document.getElementById("CheckOne") as HTMLInputElement)?.checked;
+    let two = (document.getElementById("CheckTwo") as HTMLInputElement)?.checked;
     useEffect(() => {
         let bookmark = document.getElementById("bookmark")
         let imgBook = document.getElementById("imgBook")
@@ -57,13 +59,13 @@ const Content = () => {
         btnOne?.addEventListener("click", () => {
             setMenu(!Menu)
             document.getElementById("cardTwo")?.classList.add("greenBorder")
-            document.getElementById("CheckOne").checked = true
+            One = true
             document.getElementById("SaleOne")?.classList.remove("none")
         })
         btnTwo?.addEventListener("click", () => {
             setMenu(!Menu)
             document.getElementById("cardThree")?.classList.add("greenBorder")
-            document.getElementById("CheckTwo").checked = true
+            two = true
             document.getElementById("SaleTwo")?.classList.remove("none")
             
         })
